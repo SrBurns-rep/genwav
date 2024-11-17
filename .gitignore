@@ -46,3 +46,6 @@
 
 # Archive files
 *.tar
+
+# Compiled program
+genwav
