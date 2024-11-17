@@ -51,7 +51,7 @@ void sin_tone(WavFile *file, float amp, float base_freq) {
 	}
 }
 
-int write_wav(WavFile *file_buff, const char *name) {
+int wav_write(WavFile *file_buff, const char *name) {
 	FILE *file = fopen(name, "w");
 	if(file == NULL){
 		perror("fopen");
@@ -95,7 +95,6 @@ WavFile *wav_alloc_mono(size_t sample_size) {
 		}
 	};
 
-
 	return file_buff;
 }
 
@@ -109,7 +108,7 @@ int main(void) {
 
 	sin_tone(file_buff, pow(2, 15) / 2.f, 440.f);
 
-	int err = write_wav(file_buff, "test0.wav");
+	int err = wav_write(file_buff, "test0.wav");
 
 	free(file_buff);
 
